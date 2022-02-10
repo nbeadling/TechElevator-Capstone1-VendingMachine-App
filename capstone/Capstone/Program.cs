@@ -8,6 +8,7 @@ namespace Capstone
         static void Main(string[] args)
         {
             Menus.MainMenu();
+            DisplayMenu.PurchaseMeun();
         }
     }
 }
