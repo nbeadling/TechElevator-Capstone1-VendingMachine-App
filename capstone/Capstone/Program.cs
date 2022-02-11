@@ -9,7 +9,6 @@ namespace Capstone
         {
             Console.WriteLine("***Welcome to the Vending Machine*** \n");
             Menus.MainMenu();
-            DisplayMenu.PurchaseMeun();
         }
     }
 }

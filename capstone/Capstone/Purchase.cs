@@ -4,58 +4,48 @@ using System.Text;
 
 namespace Capstone
 {
-    public class Purchase
+    public class Purchase:DisplayMenu
     {
         public decimal Price { get; set; }
 
-        public decimal CurrentAmount { get; set;  }
+        public decimal CurrentAmount { get; set; }
+
+        public Dictionary<string,decimal> VendingItems { get; set; }
 
 
-        Dictionary<string, decimal> vendingItems = new Dictionary<string, decimal>()
+        public Dictionary<string,decimal> vendingItems()
         {
-            {"A1", 3.05M },
-            {"A2", 1.45M },
-            {"A3", 2.75M },
-            {"A4", 3.65M},
-            {"B1", 1.80M },
-            {"B2", 1.50M },
-            {"B3", 1.50M },
-            {"B4", 1.75M },
-            {"C1", 1.25M },
-            {"C2", 1.50M },
-            {"C3", 1.50M },
-            {"C4", 1.50M },
-            {"D1", 0.85M },
-            {"D2", 0.95M },
-            {"D3", 0.75M },
-            {"D4", 0.75M }
-        };
+            DisplayMenu displaymenu = new DisplayMenu();
+            Dictionary<string, decimal> vendingItems = new Dictionary<string, decimal>();
+            foreach (string item in displaymenu.GetMenu())
+            {
+                string[] cutItem = item.Split("|");
+                vendingItems[cutItem[0]] = decimal.Parse(cutItem[2]);
+            }
+            this.VendingItems= vendingItems;
+            return this.VendingItems;
+        }
 
-        public decimal InputAmount(int moneyInput)
+        public decimal InputAmount(decimal moneyInput)
         {
-            //int currentAmount = 0;
-            //Console.Write("feed money: $1, $2, $5, or $10: ");
-            //int moneyInput = int.Parse(Console.ReadLine());
             this.CurrentAmount += moneyInput;
             Console.WriteLine();
             return this.CurrentAmount;
         }
         public decimal InputAmount()
         {
-            //int currentAmount = 0;
-            //Console.Write("feed money: $1, $2, $5, or $10: ");
-            //int moneyInput = int.Parse(Console.ReadLine());
-            //this.CurrentAmount += moneyInput;
             Console.WriteLine();
             return this.CurrentAmount;
         }
-        public  decimal  ItemPrice(string selection)
+        public decimal ItemPrice(string selection)
         {
-            this.Price = vendingItems[selection];
-            return this.Price; 
+            vendingItems();
+            decimal itemPrice = this.VendingItems[selection];
+            this.Price = itemPrice;
+            return this.Price;
         }
 
-        public void  PriceComparison()
+        public void PriceComparison()
         {
             if(this.Price > this.CurrentAmount)
             {
@@ -64,11 +54,51 @@ namespace Capstone
             }
             else
             {
+                this.CurrentAmount -= this.Price;
                 Console.WriteLine("Transcation Complete");
-                Console.WriteLine("Thank you for using the Vending Machine!");
+                Console.WriteLine($"Current Balance: {this.CurrentAmount}");
+                Console.WriteLine("Thank you for purchasing!");
+                Console.Write("To exit. Enter 3 again: ");
+                int userExit = int.Parse(Console.ReadLine());
+                if (userExit == 3)
+                {
+                    ReturnChange();
+                }
             }
         }
 
+        public void ReturnChange()
+        {
+            decimal quarter = 0.25M;
+            decimal nickel = 0.05M;
+            decimal dime = 0.10M;
 
+            decimal quartersReturn = 0;
+            decimal dimesReturn = 0;
+            decimal nicklesReturn = 0;
+
+            while (this.CurrentAmount != 0)
+            {
+                if (this.CurrentAmount >= 0.25M)
+                {
+                    quartersReturn = CurrentAmount / quarter;
+                    this.CurrentAmount = this.CurrentAmount - ((int)quartersReturn * 0.25M);
+                }
+                else if (this.CurrentAmount >= .10M)
+                {
+                    dimesReturn = this.CurrentAmount / dime;
+                    this.CurrentAmount = this.CurrentAmount - ((int)dimesReturn * 0.10M);
+                }
+                else
+                {
+                    nicklesReturn = CurrentAmount / nickel;
+                    this.CurrentAmount = this.CurrentAmount - ((int)nicklesReturn * 0.05M);
+                }
+            }
+            
+
+            Console.WriteLine($"Changed return in {(int)quartersReturn} quarters, {(int)dimesReturn} dimes, {(int)nicklesReturn} nickels");
+            Console.WriteLine("Thank you for using the Vending Machine!");
+        }
     }
 }

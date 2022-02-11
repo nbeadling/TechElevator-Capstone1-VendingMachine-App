@@ -8,6 +8,8 @@ namespace Capstone
     {
         public static void MainMenu()
         {
+            DisplayMenu displaymenu = new DisplayMenu();
+            
             bool restart = false;
             while (!restart)
             {
@@ -25,7 +27,8 @@ namespace Capstone
                     else if (userInput == 1)
                     {
                         Console.WriteLine();
-                        DisplayMenu.GetMenu();
+                        displaymenu.GetMenu();
+                        displaymenu.ItemMenu();
                     }
                     else if (userInput == 2)
                     {

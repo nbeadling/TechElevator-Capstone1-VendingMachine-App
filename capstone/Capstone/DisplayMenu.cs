@@ -7,34 +7,46 @@ namespace Capstone
 {
     public class DisplayMenu
     {
-        public static void GetMenu()
+        public List<string> items { get; set; }
+
+        public List<string> GetMenu()
         {
+            List<string> items = new List<string>();
             string directory = AppDomain.CurrentDomain.BaseDirectory;
             string newFileName = Path.Combine(directory, @"..\..\..\VendingMachineItem\vendingmachine.csv");
             string fullPath = Path.GetFullPath(newFileName);
-
             try
             {
                 using (StreamReader sr = new StreamReader(fullPath))
                 {
                     while (!sr.EndOfStream)
                     {
-                        //availableamount???
                         string line = sr.ReadLine();
-                        Console.WriteLine(line);
+                        items.Add(line);
                     }
-                    Console.WriteLine();
                 }
-
             }
             catch (IOException e)
             {
                 Console.WriteLine(e.Message);
             }
+            this.items = items;
+            return this.items;
+        }
+
+        public void ItemMenu()
+        {
+            foreach (string item in this.items)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
         }
 
         public static void PurchaseMeun()
         {
+            DisplayMenu displayMenu = new DisplayMenu();
+
             Purchase purchase = new Purchase();
             Console.WriteLine();
             Console.WriteLine("***Purchase Menu****\n");
@@ -42,7 +54,7 @@ namespace Capstone
             bool restart = false;
             while (!restart)
             {
-                Console.WriteLine($"Current Balance: ${purchase.InputAmount()}.00 \n");
+                Console.WriteLine($"Current Balance: ${purchase.InputAmount()} \n");
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction \n");
@@ -57,30 +69,24 @@ namespace Capstone
                     else if (userInput == 1)
                     {
                         Console.Write("feed money: $1, $2, $5, or $10: ");
-                        int moneyInput = int.Parse(Console.ReadLine());
+                        decimal moneyInput = decimal.Parse(Console.ReadLine());
                         purchase.InputAmount(moneyInput);
                     
                     }
                     else if (userInput == 2)
                     {
-                        DisplayMenu.GetMenu();
+                        displayMenu.GetMenu();
+                        displayMenu.ItemMenu();
 
-                        //Added the below code (Nick's Notes)
-                        Console.WriteLine("Please Enter number selection of the Product you wish to purchase: ");
+                        Console.Write("Please Enter number selection of the Product you wish to purchase: ");
                         string selection = Console.ReadLine();
 
-                        
-                        purchase.ItemPrice(selection);
-                        Console.WriteLine($"Cost of item: {purchase.ItemPrice(selection)}");
+                        Console.WriteLine($"Cost of item: S{purchase.ItemPrice(selection)}");
             
                     }
                     else
                     {
-
                         purchase.PriceComparison();
-                        //Console.WriteLine("Transcation Complete");
-                        //Console.WriteLine("Thank you for using the Vending Machine!");
-                        break;
                     }
                 }
                 catch (FormatException e)
