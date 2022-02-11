@@ -19,6 +19,7 @@ namespace Capstone
                 {
                     while (!sr.EndOfStream)
                     {
+                        //availableamount???
                         string line = sr.ReadLine();
                         Console.WriteLine(line);
                     }
@@ -61,7 +62,7 @@ namespace Capstone
                     }
                     else if (userInput == 2)
                     {
-                        DisplayMenu.ReadFile(); 
+                        DisplayMenu.GetMenu();
 
                         //Added the below code (Nick's Notes)
                         Console.WriteLine("Please Enter number selection of the Product you wish to purchase: ");
