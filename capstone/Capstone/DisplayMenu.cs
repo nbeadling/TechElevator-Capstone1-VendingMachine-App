@@ -46,7 +46,7 @@ namespace Capstone
                 Console.WriteLine("(3) Finish Transaction \n");
                 try
                 {
-                    Console.Write("Please select a number: ");
+                     Console.Write("Please select a number: ");
                     int userInput = int.Parse(Console.ReadLine());
                     if (userInput < 1 || userInput > 3)
                     {
@@ -61,10 +61,43 @@ namespace Capstone
                     }
                     else if (userInput == 2)
                     {
-                        Console.WriteLine();
-                        DisplayMenu.GetMenu();
-                        Console.Write("Select an item: ");
-                        string selectedItem = Console.ReadLine();
+                        DisplayMenu.ReadFile(); 
+
+                        //Added the below code (Nick's Notes)
+                        Console.WriteLine("Please Enter number selection of the Product you wish to purchase: ");
+                        string selection = Console.ReadLine();
+                      try
+                      {
+
+
+                    if (selection == "A1" || selection == "A2" || selection == "A3" || selection == "A4")
+                    {
+                        //Call the Chip Method That we create? 
+                    }
+
+                    else if (selection == "B1" || selection == "B2" || selection == "B3" || selection == "B4")
+                    {
+                        //Call the Candy Method that we create? 
+                    }
+
+                    else if (selection == "C1" || selection == "C2" || selection == "C3" || selection == "C4")
+                    {
+                        //Call the Beveragle Method we create? 
+                    }
+
+                    else if (selection == "D1 " || selection == "D2" || selection == "D3" || selection == "D4")
+                    {
+                        //call the Gum method we create? 
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Valid Selection");
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
 
                         break;
                     }
@@ -79,6 +112,9 @@ namespace Capstone
                 {
                     Console.WriteLine(e.Message);
                 }
+            
+                
+               
             }
         }
     }

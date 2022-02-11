@@ -4,7 +4,16 @@ using System.Text;
 
 namespace Capstone
 {
-    class Gums
+    public class Gums : VendingMachine
     {
+        
+        
+          public Gums() : base() { }
+
+          public Gums(string itemName, decimal price) : base(itemName, price) { }
+
+
+
+
     }
 }
