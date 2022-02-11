@@ -6,29 +6,38 @@ namespace Capstone
 {
     public class VendingMachine
     {
-        public string ItemName { get; set; }
+        //Property
+        public string ItemName { get;}
 
-        public decimal Price { get; set; }
+        public decimal Price { get; }
 
+        public int CurrentBalance { get;}
+
+        //Constructor
         public VendingMachine()
         {
-
         }
+
         public VendingMachine(string itemName, decimal price)
         {
             this.ItemName = itemName;
             this.Price = price;
         }
 
+        //Method
         public virtual string GetItem()
         {
             return ItemName;
         }
-
+       
         public virtual decimal GetPrice()
         {
             return Price;
         }
 
+        public virtual decimal BalanceCalcualtion()
+        {
+            return CurrentBalance;
+        }
     }
 }

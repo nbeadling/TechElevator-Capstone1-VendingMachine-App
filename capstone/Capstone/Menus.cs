@@ -11,7 +11,6 @@ namespace Capstone
             bool restart = false;
             while (!restart)
             {
-                Console.WriteLine("Welcome to the Vending Machine");
                 Console.WriteLine("(1) Display Vending Machine Items ");
                 Console.WriteLine("(2) Purchase");
                 Console.WriteLine("(3) Exit \n");
@@ -25,8 +24,8 @@ namespace Capstone
                     }
                     else if (userInput == 1)
                     {
-                        DisplayMenu.ReadFile();
-                        break;
+                        Console.WriteLine();
+                        DisplayMenu.GetMenu();
                     }
                     else if (userInput == 2)
                     {
