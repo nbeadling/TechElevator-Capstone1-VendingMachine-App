@@ -7,7 +7,6 @@ namespace Capstone
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***Welcome to the Vending Machine*** \n");
             Menus.MainMenu();
         }
     }

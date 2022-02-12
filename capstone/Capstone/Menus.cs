@@ -8,8 +8,8 @@ namespace Capstone
     {
         public static void MainMenu()
         {
-            DisplayMenu displaymenu = new DisplayMenu();
-            
+            VendingMachineItems vendingMachineItems = new VendingMachineItems();
+            Console.WriteLine("***** Welcome to the Vending Machine ***** \n");
             bool restart = false;
             while (!restart)
             {
@@ -27,18 +27,17 @@ namespace Capstone
                     else if (userInput == 1)
                     {
                         Console.WriteLine();
-                        displaymenu.GetMenu();
-                        displaymenu.ItemMenu();
+                        vendingMachineItems.ItemMenu();
                     }
                     else if (userInput == 2)
                     {
-                        DisplayMenu.PurchaseMeun();
+                        PurchaseMeun();
                         break;
                     }
                     else
                     {
                         Console.WriteLine("Thank you for using the Vending Machine!");
-                        break;
+                        restart = true;
                     }
 
                 }
@@ -46,6 +45,67 @@ namespace Capstone
                 {
                     Console.WriteLine(e.Message);
                 }
+            }
+        }
+
+        public static void PurchaseMeun()
+        {
+            VendingMachineItems vendingMachineItems = new VendingMachineItems();
+            Purchase purchase = new Purchase();
+            
+            Console.WriteLine();
+            Console.WriteLine("**** Purchase Menu ****");
+
+            bool restart = false;
+            while (!restart)
+            {
+                Console.WriteLine($"Current Balance: ${purchase.InputAmount()} \n");
+                Console.WriteLine("(1) Feed Money");
+                Console.WriteLine("(2) Select Product");
+                Console.WriteLine("(3) Finish Transaction \n");
+                try
+                {
+                    Console.Write("Please select a number: ");
+                    int userInput = int.Parse(Console.ReadLine());
+                    if (userInput < 1 || userInput > 3)
+                    {
+                        Console.WriteLine("Error, please try again \n");
+                    }
+                    else if (userInput == 1)
+                    {
+                        Console.Write("feed money: $1, $2, $5, or $10: ");
+                        //need a try and catch
+                        int moneyInput = int.Parse(Console.ReadLine());
+                        purchase.InputAmount(moneyInput);
+
+                    }
+                    else if (userInput == 2)
+                    {
+                        Console.WriteLine();
+                        vendingMachineItems.ItemMenu();
+
+                        Console.Write("Please enter the product code of the item you wish to purchase: ");
+                        string selection = Console.ReadLine();
+                        Console.WriteLine($"The cost of {purchase.Name(selection)} is: ${purchase.ItemPrice(selection)}");
+                        purchase.ItemTypes(selection);
+                        Console.WriteLine();
+                        purchase.PriceComparison();
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        purchase.ReturnChange();
+                        Menus.MainMenu();
+                        restart = true;
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+
+
             }
         }
     }
