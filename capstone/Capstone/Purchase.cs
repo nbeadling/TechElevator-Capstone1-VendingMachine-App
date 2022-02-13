@@ -13,6 +13,11 @@ namespace Capstone
         public Purchase (string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList)
             : base(itemCode, itemName, itemPrice, itemType, itemInventory, itemList) { }
 
+        public Purchase(string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList, decimal currentAmount)
+           : base(itemCode, itemName, itemPrice, itemType, itemInventory, itemList) 
+        {
+            this.CurrentAmount = currentAmount; 
+        }
 
         public string ItemTypes()
         {

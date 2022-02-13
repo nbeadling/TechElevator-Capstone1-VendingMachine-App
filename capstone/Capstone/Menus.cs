@@ -77,7 +77,7 @@ namespace Capstone
                     {
                         try
                         {
-                        Console.Write("feed money: $1, $2, $5, or $10: ");
+                        Console.Write("Please Enter in Dollar Amounts: $");
                         int moneyInput = int.Parse(Console.ReadLine());
                          if (moneyInput > 0) 
                             { 
