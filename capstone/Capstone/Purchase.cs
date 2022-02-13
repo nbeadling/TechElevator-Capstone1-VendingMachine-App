@@ -6,126 +6,35 @@ namespace Capstone
 {
     public class Purchase:VendingMachineItems
     {
-        public decimal Price { get; set; }
+        public string Message { get; set; }
 
         public decimal CurrentAmount { get; set; }
 
-        public string ItemType { get; set; }
-
-        public int AvailableItem { get; set; } = 5;
-
-        public string ItemName { get; set; }
-
-        public Dictionary<string,decimal> VendingItems { get; set; }
-
-        public Dictionary<string, string> VendingTypes { get; set; }
-
-        public Dictionary<string, int> ItemAmount { get; set; }
-
-        public Dictionary<string, string> ItemsName { get; set; }
+        public Purchase (string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList)
+            : base(itemCode, itemName, itemPrice, itemType, itemInventory, itemList) { }
 
 
-
-        public Dictionary<string,decimal> VendingItem()
+        public string ItemTypes()
         {
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-
-            Dictionary<string, decimal> vendingItems = new Dictionary<string, decimal>();
-            
-            foreach (string item in vendingMachineItems.GetMenu())
+            if (base.ItemType  == "Chip")
             {
-                string[] cutItem = item.Split("|");
-                vendingItems[cutItem[0]] = decimal.Parse(cutItem[2]);
+                this.Message = "Crunch Crunch, Yum!";
             }
-            this.VendingItems= vendingItems;
-            return this.VendingItems;
+            else if (base.ItemType == "Candy")
+            {
+                this.Message = "Munch Munch, Yum!";
+            }
+            else if (base.ItemType == "Drink")
+            {
+                this.Message = "Glug Glug, Yum!";
+            }
+            else if (base.ItemType == "Gum")
+            {
+                this.Message = "Chew Chew, Yum!";
+            }
+            return this.Message;
         }
 
-        public decimal ItemPrice(string selection)
-        {
-            VendingItem();
-            decimal itemPrice = this.VendingItems[selection];
-            this.Price = itemPrice;
-            return this.Price;
-        }
-
-        public Dictionary<string, string> VendingType()
-        {
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-
-            Dictionary<string, string> vendingTypes = new Dictionary<string, string>();
-
-            foreach (string item in vendingMachineItems.GetMenu())
-            {
-                string[] cutItem = item.Split("|");
-                vendingTypes[cutItem[0]] = cutItem[3];
-            }
-            this.VendingTypes = vendingTypes;
-            return this.VendingTypes;
-        }
-
-        public string ItemTypes(string selection)
-        {
-            VendingType();
-            if (this.VendingTypes[selection] == "Chip")
-            {
-                this.ItemType = "Crunch Crunch, Yum!";
-            } 
-            else if (this.VendingTypes[selection] == "Candy")
-            {
-                this.ItemType = "Munch Munch, Yum!";
-            }
-            else if (this.VendingTypes[selection] == "Drink")
-            {
-                this.ItemType = "Glug Glug, Yum!";
-            }
-            else if (this.VendingTypes[selection] == "Gum")
-            {
-                this.ItemType = "Chew Chew, Yum!";
-            }
-            return this.ItemType;
-        }
-
-
-        public Dictionary<string, string> VendingName()
-        {
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-
-            Dictionary<string, string> vendingNames = new Dictionary<string, string>();
-
-            foreach (string item in vendingMachineItems.GetMenu())
-            {
-                string[] cutItem = item.Split("|");
-                vendingNames[cutItem[0]] = cutItem[1];
-            }
-            this.ItemsName = vendingNames;
-            return this.ItemsName;
-        }
-
-        public string Name(string selection)
-        {
-            VendingName();
-            string name = this.ItemsName[selection];
-            this.ItemName = name;
-            return this.ItemName;
-        }
-
-        public Dictionary<string, int> ItemsAmount()
-        {
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-
-            Dictionary<string, int> itemsAmount = new Dictionary<string, int>();
-
-            foreach (string item in vendingMachineItems.GetMenu())
-            {
-                string[] cutItem = item.Split("|");
-                itemsAmount[cutItem[0]] = this.AvailableItem;
-            }
-            this.ItemAmount = itemsAmount;
-            return this.ItemAmount;
-        }
-
-        
 
 
         public decimal InputAmount(decimal moneyInput)
@@ -139,27 +48,27 @@ namespace Capstone
             return this.CurrentAmount;
         }
 
-        
 
-
-        
-
-        public void PriceComparison()
+        public decimal PriceComparison(string selection)
         {
-            if(this.Price > this.CurrentAmount)
+            GetItems(selection);
+            if (base.ItemPrice > this.CurrentAmount)
             {
                 Console.WriteLine("Insufficent Funds, Please Add More Money!");
-                
+
             }
             else
             {
-                this.CurrentAmount -= this.Price;
-                Console.WriteLine($"Transcation Complete! {this.ItemType}");
+                this.CurrentAmount -= base.ItemPrice;
+                ItemTypes();
+                Console.WriteLine($"Transcation Complete! {this.Message}");
                 Console.WriteLine($"Your remaining balance is: ${ this.CurrentAmount}");
+
                 Console.WriteLine("Thank you for purchasing!");
-                
+                UpdateItemMenu();
             }
-            
+            return this.CurrentAmount;
+
         }
 
         public void ReturnChange()

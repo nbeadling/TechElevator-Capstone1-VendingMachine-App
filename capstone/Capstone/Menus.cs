@@ -9,6 +9,7 @@ namespace Capstone
         public static void MainMenu()
         {
             VendingMachineItems vendingMachineItems = new VendingMachineItems();
+            vendingMachineItems.GetMenu();
             Console.WriteLine("***** Welcome to the Vending Machine ***** \n");
             bool restart = false;
             while (!restart)
@@ -51,8 +52,9 @@ namespace Capstone
         public static void PurchaseMeun()
         {
             VendingMachineItems vendingMachineItems = new VendingMachineItems();
-            Purchase purchase = new Purchase();
-            
+            vendingMachineItems.GetMenu();
+            Purchase purchase = new Purchase(vendingMachineItems.ItemCode, vendingMachineItems.ItemName, vendingMachineItems.ItemPrice, vendingMachineItems.ItemType, vendingMachineItems.ItemInventory, vendingMachineItems.ItemList);
+
             Console.WriteLine();
             Console.WriteLine("**** Purchase Menu ****");
 
@@ -99,10 +101,10 @@ namespace Capstone
 
                         Console.Write("Please enter the product code of the item you wish to purchase: ");
                         string selection = Console.ReadLine();
-                        Console.WriteLine($"The cost of {purchase.Name(selection)} is: ${purchase.ItemPrice(selection)}");
-                        purchase.ItemTypes(selection);
+                        vendingMachineItems.GetItems(selection);
+                        Console.WriteLine($"The cost of {vendingMachineItems.ItemName} is: ${vendingMachineItems.ItemPrice }");
                         Console.WriteLine();
-                        purchase.PriceComparison();
+                        purchase.PriceComparison(selection);
                     }
                     else
                     {

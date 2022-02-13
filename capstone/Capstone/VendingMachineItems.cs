@@ -7,7 +7,24 @@ namespace Capstone
 {
     public class VendingMachineItems
     {
-        public List<string> items { get; set; }
+        public string ItemCode { get; set; }
+        public string ItemName { get; set; }
+        public decimal ItemPrice { get; set; }
+        public string ItemType { get; set; }
+        public int ItemInventory { get; set; } = 5;
+
+        public List<string> ItemList { get; set; }
+
+        public VendingMachineItems() { }
+        public VendingMachineItems(string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList)
+        {
+            this.ItemCode = itemCode;
+            this.ItemName = itemName;
+            this.ItemPrice = itemPrice;
+            this.ItemType = itemType;
+            this.ItemInventory = itemInventory;
+            this.ItemList = itemList;
+        }
 
         public List<string> GetMenu()
         {
@@ -22,7 +39,7 @@ namespace Capstone
                     while (!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
-                        items.Add(line);
+                        items.Add(line + "|" + ItemInventory);
                     }
                 }
             }
@@ -30,35 +47,55 @@ namespace Capstone
             {
                 Console.WriteLine(e.Message);
             }
-            this.items = items;
-            return this.items;
+            this.ItemList = items;
+            return this.ItemList;
         }
 
-        public int NumberOfItems { get; set; }
-        
-       public int ProductRemaining(int numberOfItems)
-        {
-            numberOfItems = 5;
-            this.NumberOfItems = numberOfItems;
-            return numberOfItems;
-        }
             
-      
-                
-           
-        
         public void ItemMenu()
         {
-            foreach (string item in GetMenu())
+            foreach (string item in this.ItemList)
             {
                 
                 Console.WriteLine(item);
-                Console.WriteLine($"Number of product remaining: {ProductRemaining(5)}");
+                Console.WriteLine($"Number of product remaining: {this.ItemInventory}");
             }
             Console.WriteLine();
         }
 
-        
+        public void GetItems(string selection)
+        {
+            foreach (string line in this.ItemList)
+            {
+                if (line.Contains(selection) == true)
+                {
+                    string[] cutup = line.Split("|");
+                    this.ItemCode = cutup[0];
+                    this.ItemName = cutup[1];
+                    this.ItemPrice = decimal.Parse(cutup[2]);
+                    this.ItemType = cutup[3];
+                    this.ItemInventory = int.Parse(cutup[4]);
+                }
+            }
+
+        }
+
+        public List<string> UpdateItemMenu()
+        {
+            for (int i = 0; i < ItemList.Count; i++)
+            {
+                string item = ItemList[i];
+                if (item.Contains(ItemName) == true)
+                {
+                    ItemInventory -= 1;
+                    ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + ItemInventory;
+                }
+
+            }
+            return this.ItemList;
+
+        }
+
 
     }
 }
