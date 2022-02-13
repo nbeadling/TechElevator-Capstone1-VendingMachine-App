@@ -34,11 +34,26 @@ namespace Capstone
             return this.items;
         }
 
+        public int NumberOfItems { get; set; }
+        
+       public int ProductRemaining(int numberOfItems)
+        {
+            numberOfItems = 5;
+            this.NumberOfItems = numberOfItems;
+            return numberOfItems;
+        }
+            
+      
+                
+           
+        
         public void ItemMenu()
         {
             foreach (string item in GetMenu())
             {
+                
                 Console.WriteLine(item);
+                Console.WriteLine($"Number of product remaining: {ProductRemaining(5)}");
             }
             Console.WriteLine();
         }

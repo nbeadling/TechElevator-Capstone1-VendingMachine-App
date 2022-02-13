@@ -73,10 +73,23 @@ namespace Capstone
                     }
                     else if (userInput == 1)
                     {
+                        try
+                        {
                         Console.Write("feed money: $1, $2, $5, or $10: ");
                         //need a try and catch
                         int moneyInput = int.Parse(Console.ReadLine());
-                        purchase.InputAmount(moneyInput);
+                         if (moneyInput > 0) 
+                            { 
+                              purchase.InputAmount(moneyInput);
+                            }
+                        
+
+                        }
+                        catch(FormatException)
+                        {
+                            Console.WriteLine("Not a valid amount");
+                        }
+                       
 
                     }
                     else if (userInput == 2)
@@ -97,6 +110,7 @@ namespace Capstone
                         purchase.ReturnChange();
                         Menus.MainMenu();
                         restart = true;
+                        
                     }
                 }
                 catch (FormatException e)

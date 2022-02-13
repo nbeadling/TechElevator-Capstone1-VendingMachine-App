@@ -70,7 +70,7 @@ namespace Capstone
             if (this.VendingTypes[selection] == "Chip")
             {
                 this.ItemType = "Crunch Crunch, Yum!";
-            }
+            } 
             else if (this.VendingTypes[selection] == "Candy")
             {
                 this.ItemType = "Munch Munch, Yum!";
@@ -157,7 +157,9 @@ namespace Capstone
                 Console.WriteLine($"Transcation Complete! {this.ItemType}");
                 Console.WriteLine($"Your remaining balance is: ${ this.CurrentAmount}");
                 Console.WriteLine("Thank you for purchasing!");
+                
             }
+            
         }
 
         public void ReturnChange()
