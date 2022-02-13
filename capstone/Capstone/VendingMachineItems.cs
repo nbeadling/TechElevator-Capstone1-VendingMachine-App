@@ -15,6 +15,8 @@ namespace Capstone
 
         public List<string> ItemList { get; set; }
 
+        public List<string> CheckList { get; set; }
+
         public VendingMachineItems() { }
         public VendingMachineItems(string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList)
         {
@@ -61,34 +63,47 @@ namespace Capstone
             Console.WriteLine();
         }
 
+        public List<string> CheckItem()
+        {
+            List<string> checklist = new List<string>();
+            foreach(string line in this.ItemList)
+            {
+                string[] code = line.Split("|");
+                checklist.Add(code[0]);
+            }
+            this.CheckList = checklist;
+            return this.CheckList;
+        }
+
         public void GetItems(string selection)
         {
             try
-            {   
-                foreach (string line in this.ItemList)
+            {
+                if (CheckItem().Contains(selection))
                 {
-                    if (line.Contains(selection) == true)
+                    foreach (string line in this.ItemList)
                     {
-                                string[] cutup = line.Split("|");
-                                this.ItemCode = cutup[0];
-                                this.ItemName = cutup[1];
-                                this.ItemPrice = decimal.Parse(cutup[2]);
-                                this.ItemType = cutup[3];
-                                this.ItemInventory = int.Parse(cutup[4]);
+                        if (line.Contains(selection) == true)
+                        {
+                            string[] cutup = line.Split("|");
+                            this.ItemCode = cutup[0];
+                            this.ItemName = cutup[1];
+                            this.ItemPrice = decimal.Parse(cutup[2]);
+                            this.ItemType = cutup[3];
+                            this.ItemInventory = int.Parse(cutup[4]);
+                        }
                     }
-                    else
-                    {
-
-                    }
-                          
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Selection");
                 }
 
             }
             catch (FormatException)
             {
                 Console.WriteLine("This Item is Out of Stock");
-            }
-            
+            } 
 
         }
 
