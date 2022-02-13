@@ -52,20 +52,23 @@ namespace Capstone
         public decimal PriceComparison(string selection)
         {
             GetItems(selection);
-            if (base.ItemPrice > this.CurrentAmount)
+            if (base.ItemPrice > this.CurrentAmount && this.ItemInventory>0)
             {
+                Console.WriteLine($"The cost of {base.ItemName} is: ${base.ItemPrice } \n");
                 Console.WriteLine("Insufficent Funds, Please Add More Money!");
-
             }
-            else
+            else if (base.ItemPrice < this.CurrentAmount && this.ItemInventory > 0)
             {
                 this.CurrentAmount -= base.ItemPrice;
                 ItemTypes();
+                Console.WriteLine($"The cost of {base.ItemName} is: ${base.ItemPrice } \n");
                 Console.WriteLine($"Transcation Complete! {this.Message}");
                 Console.WriteLine($"Your remaining balance is: ${ this.CurrentAmount}");
-
                 Console.WriteLine("Thank you for purchasing!");
                 UpdateItemMenu();
+            }
+            else
+            {
             }
             return this.CurrentAmount;
 

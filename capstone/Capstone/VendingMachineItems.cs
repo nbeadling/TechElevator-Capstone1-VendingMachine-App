@@ -56,27 +56,39 @@ namespace Capstone
         {
             foreach (string item in this.ItemList)
             {
-                
                 Console.WriteLine(item);
-                Console.WriteLine($"Number of product remaining: {this.ItemInventory}");
             }
             Console.WriteLine();
         }
 
         public void GetItems(string selection)
         {
-            foreach (string line in this.ItemList)
-            {
-                if (line.Contains(selection) == true)
+            try
+            {   
+                foreach (string line in this.ItemList)
                 {
-                    string[] cutup = line.Split("|");
-                    this.ItemCode = cutup[0];
-                    this.ItemName = cutup[1];
-                    this.ItemPrice = decimal.Parse(cutup[2]);
-                    this.ItemType = cutup[3];
-                    this.ItemInventory = int.Parse(cutup[4]);
+                    if (line.Contains(selection) == true)
+                    {
+                                string[] cutup = line.Split("|");
+                                this.ItemCode = cutup[0];
+                                this.ItemName = cutup[1];
+                                this.ItemPrice = decimal.Parse(cutup[2]);
+                                this.ItemType = cutup[3];
+                                this.ItemInventory = int.Parse(cutup[4]);
+                    }
+                    else
+                    {
+
+                    }
+                          
                 }
+
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("This Item is Out of Stock");
+            }
+            
 
         }
 
@@ -88,7 +100,14 @@ namespace Capstone
                 if (item.Contains(ItemName) == true)
                 {
                     ItemInventory -= 1;
-                    ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + ItemInventory;
+                    if (ItemInventory > 0)
+                    {
+                        ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + ItemInventory;
+                    }
+                    else
+                    {
+                        ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + "SOLD OUT";
+                    }
                 }
 
             }

@@ -78,7 +78,6 @@ namespace Capstone
                         try
                         {
                         Console.Write("feed money: $1, $2, $5, or $10: ");
-                        //need a try and catch
                         int moneyInput = int.Parse(Console.ReadLine());
                          if (moneyInput > 0) 
                             { 
@@ -100,9 +99,7 @@ namespace Capstone
                         vendingMachineItems.ItemMenu();
 
                         Console.Write("Please enter the product code of the item you wish to purchase: ");
-                        string selection = Console.ReadLine();
-                        vendingMachineItems.GetItems(selection);
-                        Console.WriteLine($"The cost of {vendingMachineItems.ItemName} is: ${vendingMachineItems.ItemPrice }");
+                        string selection = Console.ReadLine().ToUpper();
                         Console.WriteLine();
                         purchase.PriceComparison(selection);
                     }
@@ -110,7 +107,6 @@ namespace Capstone
                     {
                         Console.WriteLine();
                         purchase.ReturnChange();
-                        Menus.MainMenu();
                         restart = true;
                         
                     }
