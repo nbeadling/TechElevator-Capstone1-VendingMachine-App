@@ -85,3 +85,11 @@
 2/14/2022 3:06:14 PM   FEED MONEY        Available Balance:$2   Current Balace:$2
 2/14/2022 3:06:18 PM   U-Chews D1   Available Balance:$2   Current Balance:$1.15
 2/14/2022 3:06:20 PM   GIVE CHANGE        Available Balance:$1.15   Current Balace:$0.00
+2/14/2022 3:26:22 PM   FEED MONEY        Available Balance:$4   Current Balace:$4
+2/14/2022 3:26:26 PM   FEED MONEY        Available Balance:$1   Current Balace:$5
+2/14/2022 3:26:28 PM   Potato Crisps A1   Available Balance:$5   Current Balance:$1.95
+2/14/2022 3:26:29 PM   GIVE CHANGE        Available Balance:$1.95   Current Balace:$0.00
+2/14/2022 4:01:36 PM   FEED MONEY        Available Balance:$8   Current Balace:$8
+2/14/2022 4:01:39 PM   Potato Crisps A1   Available Balance:$8   Current Balance:$4.95
+2/14/2022 4:02:24 PM   FEED MONEY        Available Balance:$8   Current Balace:$8
+2/14/2022 4:03:16 PM   Potato Crisps A1   Available Balance:$8   Current Balance:$4.95

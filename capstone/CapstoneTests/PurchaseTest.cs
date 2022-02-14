@@ -15,12 +15,12 @@ namespace CapstoneTests
         {
             Purchase purchase = new Purchase();
             string param1 = "5";
-            decimal inputAmount = decimal.Parse(param1); 
-            
+            decimal inputAmount = decimal.Parse(param1);
+            decimal expectedValue = purchase.CurrentAmount + inputAmount;
 
             decimal actualValue = purchase.InputAmount(inputAmount);
 
-            Assert.AreEqual(inputAmount, actualValue); 
+            Assert.AreEqual(expectedValue, actualValue); 
 
           
 
@@ -53,17 +53,21 @@ namespace CapstoneTests
         [TestMethod]
         public void PriceComparison()
         {
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-            vendingMachineItems.GetMenu();
-            Purchase purchase = new Purchase(vendingMachineItems.ItemCode, vendingMachineItems.ItemName, vendingMachineItems.ItemPrice, vendingMachineItems.ItemType, vendingMachineItems.ItemInventory, vendingMachineItems.ItemList);
-
-
             string param1 = "A1";
             decimal itemPrice = 3.05M;
             decimal currentAmount = 8.00M;
+            
+            VendingMachineItems vendingMachineItems = new VendingMachineItems();
+            //vendingMachineItems.GetMenu();
+            Purchase purchase = new Purchase(param1, "Potato Crisps", itemPrice, "Chip", 5, vendingMachineItems.ItemList);
+            purchase.GetMenu(); 
+
+           
+            purchase.CurrentAmount = currentAmount;
+            
             decimal expectedValue = currentAmount - itemPrice; 
             decimal actualValue = purchase.PriceComparison(param1);
-
+            
             Assert.AreEqual(expectedValue, actualValue, "additional details...");
         }
 
