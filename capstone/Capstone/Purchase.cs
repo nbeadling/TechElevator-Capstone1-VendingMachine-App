@@ -45,6 +45,7 @@ namespace Capstone
         public decimal InputAmount(decimal moneyInput)
         {
             this.CurrentAmount += moneyInput;
+            AuditLogs.WriteFiles("FEED MONEY", moneyInput, this.CurrentAmount);
             return this.CurrentAmount;
         }
         public decimal InputAmount()
@@ -64,12 +65,14 @@ namespace Capstone
             }
             else if (base.ItemPrice < this.CurrentAmount && this.ItemInventory > 0 && CheckItem().Contains(selection) == true)
             {
+                decimal originalAmount = this.CurrentAmount;
                 this.CurrentAmount -= base.ItemPrice;
                 ItemTypes();
                 Console.WriteLine($"The cost of {base.ItemName} is: ${base.ItemPrice } \n");
                 Console.WriteLine($"Transcation Complete! {this.Message}");
                 Console.WriteLine($"Your remaining balance is: ${ this.CurrentAmount}");
                 Console.WriteLine("Thank you for purchasing!");
+                AuditLogs.WriteFiles(base.ItemName,base.ItemCode, originalAmount, this.CurrentAmount);
                 UpdateItemMenu();
             }
             else
@@ -89,6 +92,8 @@ namespace Capstone
             decimal dimesReturn = 0;
             decimal nicklesReturn = 0;
 
+            decimal beforeChange = this.CurrentAmount;
+
             while (this.CurrentAmount != 0)
             {
                 if (this.CurrentAmount >= 0.25M)
@@ -107,8 +112,8 @@ namespace Capstone
                     this.CurrentAmount = this.CurrentAmount - ((int)nicklesReturn * 0.05M);
                 }
             }
-            
 
+            AuditLogs.WriteFiles("GIVE CHANGE",beforeChange, this.CurrentAmount);
             Console.WriteLine($"Change return:  {(int)quartersReturn} quarters, {(int)dimesReturn} dimes, {(int)nicklesReturn} nickels");
             Console.WriteLine("Thank you for using the Vending Machine! \n");
         }

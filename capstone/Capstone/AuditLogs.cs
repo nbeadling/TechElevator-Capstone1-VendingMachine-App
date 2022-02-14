@@ -5,13 +5,9 @@ using System.IO;
 
 namespace Capstone
 {
-    public class AuditLogs : Purchase
+    public class AuditLogs
     {
-
-        public AuditLogs(string itemCode, string itemName, decimal itemPrice, string itemType, int itemInventory, List<string> itemList, decimal currentAmount)
-           : base(itemCode, itemName, itemPrice, itemType, itemInventory, itemList, currentAmount) { }
-
-        public void WriteFiles() 
+        public static void WriteFiles(string action, decimal moneyInput, decimal currentAmount) 
         { 
         string directory = AppDomain.CurrentDomain.BaseDirectory;
         string newFileName = Path.Combine(directory, @"..\..\..\VendingMachineItem\log.txt");
@@ -20,14 +16,32 @@ namespace Capstone
             {
                 using (StreamWriter sw = new StreamWriter(fullPath, true))
                 {
-                    sw.WriteLine(DateTime.Now);
-                    sw.WriteLine(CurrentAmount);
+                    sw.WriteLine($"{DateTime.Now}   {action}        Available Balance:${moneyInput}   Current Balace:${currentAmount}");
                 }
 
             }
-            catch
+            catch (IOException e)
             {
+                Console.WriteLine(e.Message);
+            }
+        }
 
+        public static void WriteFiles(string action,string code, decimal moneyInput, decimal currentAmount)
+        {
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            string newFileName = Path.Combine(directory, @"..\..\..\VendingMachineItem\log.txt");
+            string fullPath = Path.GetFullPath(newFileName);
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(fullPath, true))
+                {
+                    sw.WriteLine($"{DateTime.Now}   {action} {code}   Available Balance:${moneyInput}   Current Balance:${currentAmount}");
+                }
+
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 

@@ -23,7 +23,7 @@ namespace Capstone
                     int userInput = int.Parse(Console.ReadLine());
                     if (userInput < 1 || userInput > 3)
                     {
-                        Console.WriteLine("Error, please try again \n");
+                        Console.WriteLine("Error. Invalid Selection. Please try again \n");
                     }
                     else if (userInput == 1)
                     {
@@ -42,9 +42,9 @@ namespace Capstone
                     }
 
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Error. Invalid Selection. Please try again \n");
                 }
             }
         }
@@ -71,13 +71,13 @@ namespace Capstone
                     int userInput = int.Parse(Console.ReadLine());
                     if (userInput < 1 || userInput > 3)
                     {
-                        Console.WriteLine("Error, please try again \n");
+                        Console.WriteLine("Error. Invalid Selection. Please try again \n");
                     }
                     else if (userInput == 1)
                     {
                         try
                         {
-                        Console.Write("Please Enter in Dollar Amounts: $");
+                        Console.Write("Please enter in dollar amounts: $");
                         int moneyInput = int.Parse(Console.ReadLine());
                          if (moneyInput > 0) 
                             { 
@@ -111,9 +111,9 @@ namespace Capstone
                         
                     }
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Error. Invalid Selection. Please try again \n");
                 }
 
 
