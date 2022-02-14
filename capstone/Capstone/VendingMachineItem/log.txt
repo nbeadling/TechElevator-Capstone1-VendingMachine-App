@@ -53,3 +53,35 @@
 2/14/2022 12:55:11 PM   Potato Crisps A1   Available Balance:$7.80   Current Balance:$4.75
 2/14/2022 12:55:28 PM   Triplemint D4   Available Balance:$4.75   Current Balance:$4.00
 2/14/2022 12:55:32 PM   Potato Crisps A1   Available Balance:$4.00   Current Balance:$0.95
+2/14/2022 2:35:38 PM   FEED MONEY        Available Balance:$100   Current Balace:$100
+2/14/2022 2:35:40 PM   Potato Crisps A1   Available Balance:$100   Current Balance:$96.95
+2/14/2022 2:35:43 PM   Potato Crisps A1   Available Balance:$96.95   Current Balance:$93.90
+2/14/2022 2:35:46 PM   Potato Crisps A1   Available Balance:$93.90   Current Balance:$90.85
+2/14/2022 2:35:48 PM   Potato Crisps A1   Available Balance:$90.85   Current Balance:$87.80
+2/14/2022 2:35:51 PM   Potato Crisps A1   Available Balance:$87.80   Current Balance:$84.75
+2/14/2022 2:36:01 PM   Stackers A2   Available Balance:$84.75   Current Balance:$83.30
+2/14/2022 2:36:07 PM   Potato Crisps A1   Available Balance:$83.30   Current Balance:$80.25
+2/14/2022 2:37:33 PM   FEED MONEY        Available Balance:$100   Current Balace:$100
+2/14/2022 2:38:17 PM   Potato Crisps A1   Available Balance:$100   Current Balance:$96.95
+2/14/2022 2:39:08 PM   FEED MONEY        Available Balance:$100   Current Balace:$100
+2/14/2022 2:39:10 PM   FEED MONEY        Available Balance:$1   Current Balace:$101
+2/14/2022 2:39:20 PM   Potato Crisps A1   Available Balance:$101   Current Balance:$97.95
+2/14/2022 2:39:57 PM   Potato Crisps A1   Available Balance:$97.95   Current Balance:$94.90
+2/14/2022 2:40:21 PM   Potato Crisps A1   Available Balance:$94.90   Current Balance:$91.85
+2/14/2022 2:40:45 PM   Potato Crisps A1   Available Balance:$91.85   Current Balance:$88.80
+2/14/2022 2:41:05 PM   Potato Crisps A1   Available Balance:$88.80   Current Balance:$85.75
+2/14/2022 2:41:53 PM   Stackers A2   Available Balance:$85.75   Current Balance:$84.30
+2/14/2022 2:45:59 PM   FEED MONEY        Available Balance:$100   Current Balace:$100
+2/14/2022 2:46:01 PM   Potato Crisps A1   Available Balance:$100   Current Balance:$96.95
+2/14/2022 2:46:05 PM   Potato Crisps A1   Available Balance:$96.95   Current Balance:$93.90
+2/14/2022 2:46:07 PM   Potato Crisps A1   Available Balance:$93.90   Current Balance:$90.85
+2/14/2022 2:46:09 PM   Potato Crisps A1   Available Balance:$90.85   Current Balance:$87.80
+2/14/2022 2:46:11 PM   Potato Crisps A1   Available Balance:$87.80   Current Balance:$84.75
+2/14/2022 2:46:23 PM   Stackers A2   Available Balance:$84.75   Current Balance:$83.30
+2/14/2022 2:46:33 PM   Mountain Melter C3   Available Balance:$83.30   Current Balance:$81.80
+2/14/2022 2:46:49 PM   GIVE CHANGE        Available Balance:$81.80   Current Balace:$0.00
+2/14/2022 2:47:26 PM   FEED MONEY        Available Balance:$1   Current Balace:$1
+2/14/2022 2:47:36 PM   GIVE CHANGE        Available Balance:$1   Current Balace:$0.00
+2/14/2022 3:06:14 PM   FEED MONEY        Available Balance:$2   Current Balace:$2
+2/14/2022 3:06:18 PM   U-Chews D1   Available Balance:$2   Current Balance:$1.15
+2/14/2022 3:06:20 PM   GIVE CHANGE        Available Balance:$1.15   Current Balace:$0.00

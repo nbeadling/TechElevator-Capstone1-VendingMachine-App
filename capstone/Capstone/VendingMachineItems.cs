@@ -102,6 +102,7 @@ namespace Capstone
             }
             catch (FormatException)
             {
+                this.ItemInventory = 0; 
                 Console.WriteLine("This Item is Out of Stock");
             } 
 

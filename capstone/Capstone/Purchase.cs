@@ -84,7 +84,7 @@ namespace Capstone
 
         }
 
-        public void ReturnChange()
+        public decimal ReturnChange()
         {
             decimal quarter = 0.25M;
             decimal nickel = 0.05M;
@@ -114,10 +114,12 @@ namespace Capstone
                     this.CurrentAmount = this.CurrentAmount - ((int)nicklesReturn * 0.05M);
                 }
             }
-
+            
             AuditLogs.WriteFiles("GIVE CHANGE",beforeChange, this.CurrentAmount);
             Console.WriteLine($"Change return:  {(int)quartersReturn} quarters, {(int)dimesReturn} dimes, {(int)nicklesReturn} nickels");
             Console.WriteLine("Thank you for using the Vending Machine! \n");
+            return this.CurrentAmount; 
         }
+        
     }
 }

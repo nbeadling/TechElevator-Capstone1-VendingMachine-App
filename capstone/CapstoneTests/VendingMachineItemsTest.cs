@@ -12,15 +12,15 @@ namespace CapstoneTests
 
         //[TestMethod]
 
-        //public void PriceComparison()
+        //public void GetItems()
         //{
         //    VendingMachineItems vendingMachine = new VendingMachineItems();
         //    string param1 = "A1";
         //    decimal itemPrice = 3.05M;
 
-        //    string actualValue = vendingMachine.GetItems(param1); 
+        //    string actualValue = vendingMachine.GetItems(param1);
 
-        //    Assert.AreEqual(itemPrice, actualValue, "additional details"); 
+        //    Assert.AreEqual(itemPrice, actualValue, "additional details");
         //}
 
     }

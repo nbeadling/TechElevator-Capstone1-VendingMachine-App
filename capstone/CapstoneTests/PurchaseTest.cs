@@ -48,19 +48,24 @@ namespace CapstoneTests
 
         }
 
-      
 
-        //[TestMethod]
-        //public void PriceComparison()
-        //{
-        //    Purchase purchase = new Purchase();
-        //    string param1 = "A1";
-        //    decimal itemPrice = 3.05M;
 
-        //  string actualValue = purchase.PriceComparison(param1, itemPrice);
+        [TestMethod]
+        public void PriceComparison()
+        {
+            VendingMachineItems vendingMachineItems = new VendingMachineItems();
+            vendingMachineItems.GetMenu();
+            Purchase purchase = new Purchase(vendingMachineItems.ItemCode, vendingMachineItems.ItemName, vendingMachineItems.ItemPrice, vendingMachineItems.ItemType, vendingMachineItems.ItemInventory, vendingMachineItems.ItemList);
 
-        //    Assert.AreEqual(itemPrice, actualValue, "additional details");
-        //}
+
+            string param1 = "A1";
+            decimal itemPrice = 3.05M;
+            decimal currentAmount = 8.00M;
+            decimal expectedValue = currentAmount - itemPrice; 
+            decimal actualValue = purchase.PriceComparison(param1);
+
+            Assert.AreEqual(expectedValue, actualValue, "additional details...");
+        }
 
     }
 }
