@@ -54,13 +54,14 @@ namespace Capstone
         }
 
             
-        public void ItemMenu()
+        public List<string> ItemMenu()
         {
             foreach (string item in this.ItemList)
             {
                 Console.WriteLine(item);
             }
             Console.WriteLine();
+            return this.ItemList;
         }
 
         public List<string> CheckItem()
@@ -115,16 +116,17 @@ namespace Capstone
                 string item = ItemList[i];
                 if (item.Contains(ItemName) == true)
                 {
-                    ItemInventory -= 1;
-                    if (ItemInventory > 0)
-                    {
-                        ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + ItemInventory;
-                    }
-                    else
-                    {
-                        ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + "SOLD OUT";
-                    }
+                        ItemInventory -= 1;
+                        if (ItemInventory > 0)
+                        {
+                            ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + ItemInventory;
+                        }
+                        else
+                        {
+                            ItemList[i] = ItemCode + "|" + ItemName + "|" + ItemPrice + "|" + ItemType + "|" + "SOLD OUT";
+                        }
                 }
+                
 
             }
             return this.ItemList;

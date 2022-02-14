@@ -11,93 +11,67 @@ namespace CapstoneTests
     {
         [TestMethod]
 
-        public void CurrentAmount()
+        public void FeedMoneyTest()
         {
             Purchase purchase = new Purchase();
-            string param1 = "5";
-            decimal inputAmount = decimal.Parse(param1);
+            decimal param1 = 5;
+            decimal inputAmount = param1;
             decimal expectedValue = purchase.CurrentAmount + inputAmount;
-
-            decimal actualValue = purchase.InputAmount(inputAmount);
+            decimal actualValue = purchase.FeedMoney(inputAmount);
 
             Assert.AreEqual(expectedValue, actualValue); 
-
-          
-
         }
 
         [TestMethod]
-        public void ItemTypeAndMessage()
+        public void ItemTypesTest()
         {
-            Purchase purchase = new Purchase();
-            //string param1 = "Chip";
-            //string returnMessage = "Crucn Crunch, Yum!";
+            Purchase purchase = new Purchase(); 
+            purchase.ItemType = "Chip";
+            purchase.GetMenu();
 
-            //string actualValue = purchase.ItemTypes(param1);
-            //string itemCode = "A1";
+            string expectedValue = "Crunch Crunch, Yum!";
+            string actualValue = purchase.ItemTypes();
 
-            
-            string itemType = purchase.ItemType;
-            string message = purchase.Message;
-
-            
-           
-            //string actualItemType = purchase.ItemCode;
-            
-            Assert.AreEqual(itemType, message); 
-
+            Assert.AreEqual(expectedValue, actualValue); 
         }
 
 
 
         [TestMethod]
-        public void PriceComparison()
+        public void PurchasingTest()
         {
             string param1 = "A1";
             decimal itemPrice = 3.05M;
             decimal currentAmount = 8.00M;
-            
-            VendingMachineItems vendingMachineItems = new VendingMachineItems();
-            //vendingMachineItems.GetMenu();
-            Purchase purchase = new Purchase(param1, "Potato Crisps", itemPrice, "Chip", 5, vendingMachineItems.ItemList);
-            purchase.GetMenu(); 
 
+            Purchase purchase = new Purchase();
+            purchase.GetMenu(); 
            
             purchase.CurrentAmount = currentAmount;
             
             decimal expectedValue = currentAmount - itemPrice; 
-            decimal actualValue = purchase.PriceComparison(param1);
+            decimal actualValue = purchase.Purchasing(param1);
             
             Assert.AreEqual(expectedValue, actualValue, "additional details...");
         }
 
+        [TestMethod]
+        public void ReturnChangeTest()
+        {
+            decimal currentAmount = 8.95M;
+
+            Purchase purchase = new Purchase();
+            purchase.GetMenu();
+
+            purchase.CurrentAmount = currentAmount;
+
+            decimal expectedValue = 0;
+            decimal actualValue = purchase.ReturnChange();
+
+            Assert.AreEqual(expectedValue, actualValue, "additional details...");
+        }
+
+
+
     }
 }
-/*
- * public decimal PriceComparison(string selection)
-        {
-            GetItems(selection);
-            if (base.ItemPrice > this.CurrentAmount && this.ItemInventory > 0 && CheckItem().Contains(selection) == true)
-            {
-                Console.WriteLine($"The cost of {base.ItemName} is: ${base.ItemPrice } \n");
-                Console.WriteLine("Insufficent Funds, Please Add More Money!");
-            }
-            else if (base.ItemPrice < this.CurrentAmount && this.ItemInventory > 0 && CheckItem().Contains(selection) == true)
-            {
-                decimal originalAmount = this.CurrentAmount;
-                this.CurrentAmount -= base.ItemPrice;
-                ItemTypes();
-                Console.WriteLine($"The cost of {base.ItemName} is: ${base.ItemPrice } \n");
-                Console.WriteLine($"Transcation Complete! {this.Message}");
-                Console.WriteLine($"Your remaining balance is: ${ this.CurrentAmount}");
-                Console.WriteLine("Thank you for purchasing!");
-                AuditLogs.WriteFiles(base.ItemName,base.ItemCode, originalAmount, this.CurrentAmount);
-                UpdateItemMenu();
-            }
-            else
-            {
-            }
-            return this.CurrentAmount;
- * 
- * 
- */

@@ -1,3 +1,24 @@
 2/14/2022 4:25:15 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
 2/14/2022 4:25:54 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
 2/14/2022 4:25:54 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 5:42:19 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 5:42:35 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 5:42:35 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:07:54 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:07:54 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:08:20 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:08:20 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:08:41 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:08:41 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:08:58 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:08:58 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:14:22 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:14:22 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:14:58 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:14:58 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:17:38 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:17:38 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:17:38 PM   GIVE CHANGE        Available Balance:$8.00   Current Balace:$0.00
+2/14/2022 6:19:59 PM   FEED MONEY        Available Balance:$5   Current Balace:$5
+2/14/2022 6:19:59 PM   Potato Crisps A1   Available Balance:$8.00   Current Balance:$4.95
+2/14/2022 6:19:59 PM   GIVE CHANGE        Available Balance:$8.95   Current Balace:$0.00

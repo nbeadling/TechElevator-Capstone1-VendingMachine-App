@@ -44,20 +44,20 @@ namespace Capstone
 
 
 
-        public decimal InputAmount(decimal moneyInput)
+        public decimal FeedMoney(decimal moneyInput)
         {
             this.CurrentAmount += moneyInput;
             AuditLogs.WriteFiles("FEED MONEY", moneyInput, this.CurrentAmount);
             return this.CurrentAmount;
         }
-        public decimal InputAmount()
+        public decimal CurrentBalance()
         {
             Console.WriteLine();
             return this.CurrentAmount;
         }
 
 
-        public decimal PriceComparison(string selection)
+        public decimal Purchasing(string selection)
         {
             GetItems(selection);
             if (base.ItemPrice > this.CurrentAmount && this.ItemInventory > 0 && CheckItem().Contains(selection) == true)

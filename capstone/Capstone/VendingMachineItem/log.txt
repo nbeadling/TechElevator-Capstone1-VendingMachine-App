@@ -93,3 +93,39 @@
 2/14/2022 4:01:39 PM   Potato Crisps A1   Available Balance:$8   Current Balance:$4.95
 2/14/2022 4:02:24 PM   FEED MONEY        Available Balance:$8   Current Balace:$8
 2/14/2022 4:03:16 PM   Potato Crisps A1   Available Balance:$8   Current Balance:$4.95
+2/14/2022 4:43:31 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 4:43:40 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 4:43:51 PM   FEED MONEY        Available Balance:$10   Current Balace:$16.95
+2/14/2022 4:43:59 PM   Potato Crisps A1   Available Balance:$16.95   Current Balance:$13.90
+2/14/2022 4:44:01 PM   Potato Crisps A1   Available Balance:$13.90   Current Balance:$10.85
+2/14/2022 4:44:09 PM   Potato Crisps A1   Available Balance:$10.85   Current Balance:$7.80
+2/14/2022 4:44:11 PM   Potato Crisps A1   Available Balance:$7.80   Current Balance:$4.75
+2/14/2022 4:44:24 PM   Cola C1   Available Balance:$4.75   Current Balance:$3.50
+2/14/2022 4:44:36 PM   GIVE CHANGE        Available Balance:$3.50   Current Balace:$0.00
+2/14/2022 4:44:44 PM   GIVE CHANGE        Available Balance:$0   Current Balace:$0
+2/14/2022 4:52:24 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 4:52:27 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 4:52:33 PM   Potato Crisps A1   Available Balance:$6.95   Current Balance:$3.90
+2/14/2022 4:52:37 PM   GIVE CHANGE        Available Balance:$3.90   Current Balace:$0.00
+2/14/2022 4:58:35 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 4:58:37 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 4:58:40 PM   GIVE CHANGE        Available Balance:$6.95   Current Balace:$0.00
+2/14/2022 4:58:59 PM   GIVE CHANGE        Available Balance:$0   Current Balace:$0
+2/14/2022 4:59:03 PM   GIVE CHANGE        Available Balance:$0   Current Balace:$0
+2/14/2022 5:27:45 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 5:27:50 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 5:27:56 PM   Potato Crisps A1   Available Balance:$6.95   Current Balance:$3.90
+2/14/2022 5:27:57 PM   GIVE CHANGE        Available Balance:$3.90   Current Balace:$0.00
+2/14/2022 5:31:35 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 5:31:51 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 5:32:02 PM   Potato Crisps A1   Available Balance:$6.95   Current Balance:$3.90
+2/14/2022 5:32:05 PM   GIVE CHANGE        Available Balance:$3.90   Current Balace:$0.00
+2/14/2022 5:38:13 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 5:38:24 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 5:38:29 PM   Potato Crisps A1   Available Balance:$6.95   Current Balance:$3.90
+2/14/2022 5:38:32 PM   FEED MONEY        Available Balance:$10   Current Balace:$13.90
+2/14/2022 5:38:38 PM   GIVE CHANGE        Available Balance:$13.90   Current Balace:$0.00
+2/14/2022 5:59:59 PM   FEED MONEY        Available Balance:$10   Current Balace:$10
+2/14/2022 6:00:07 PM   Potato Crisps A1   Available Balance:$10   Current Balance:$6.95
+2/14/2022 6:00:10 PM   Potato Crisps A1   Available Balance:$6.95   Current Balance:$3.90
+2/14/2022 6:00:17 PM   GIVE CHANGE        Available Balance:$3.90   Current Balace:$0.00
