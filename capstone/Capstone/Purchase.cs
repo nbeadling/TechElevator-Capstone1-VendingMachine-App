@@ -19,6 +19,8 @@ namespace Capstone
             this.CurrentAmount = currentAmount; 
         }
 
+        public Purchase() { }
+
         public string ItemTypes()
         {
             if (base.ItemType  == "Chip")

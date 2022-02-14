@@ -6,6 +6,7 @@ namespace Capstone
 {
     public class Menus
     {
+        public Menus() { }
         public static void MainMenu()
         {
             VendingMachineItems vendingMachineItems = new VendingMachineItems();
