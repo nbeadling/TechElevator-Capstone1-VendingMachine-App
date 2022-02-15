@@ -42,8 +42,6 @@ namespace Capstone
             return this.Message;
         }
 
-
-
         public decimal FeedMoney(decimal moneyInput)
         {
             this.CurrentAmount += moneyInput;
