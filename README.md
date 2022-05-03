@@ -1,2 +1,2 @@
-# Mod1-Capstone-Orange-Team-Main
+Paired programming project in which we used Object Oriented Programming principles to create a vending machine app. We were given a text file to read from and display to user, using the command line and file I/O. We use conditional logic to determine to what display next to a user depending on their input. We also used try catch to handle any exceptions, such as input not valid, or a user not putting enough money into the vending machine. We also did unit testing to test our code. 
 
